@@ -1,0 +1,186 @@
+# Complete Guide: Shell Scripting, Commands & File Permissions
+
+---
+
+## 1. What is Shell Scripting?
+
+* **Shell scripting** means writing a series of commands in a text file executed by the **shell** (command-line interpreter).
+* The shell runs commands one by one.
+* Automates tasks like backups, file management, program execution, and system management.
+
+---
+
+## 2. What is Bash?
+
+* **Bash** (Bourne Again SHell) is the most popular shell used on Linux/macOS.
+* Bash scripting is writing scripts specifically for the Bash shell.
+* Scripts start with a **shebang** line:
+
+  ```bash
+  #!/bin/bash
+  ```
+
+  to tell the system to run the script with Bash.
+
+---
+
+## 3. Why Use Shell/Bash Scripting?
+
+* Automate repetitive tasks and complex commands.
+* Schedule jobs with `cron`.
+* Manage users and system settings.
+* Powerful yet easy for system administration.
+
+---
+
+## 4. Basic Features of Bash Scripts:
+
+* Use variables, loops (`for`, `while`), conditionals (`if`, `case`).
+* Read user input.
+* Support functions and error handling.
+* Can run other commands/programs.
+
+---
+
+## 5. Example Bash Script:
+
+```bash
+#!/bin/bash
+echo "Hello, World!"
+```
+
+To run:
+
+```bash
+chmod +x hello.sh
+./hello.sh
+```
+
+Output:
+
+```
+Hello, World!
+```
+
+---
+
+## 6. Common Shell Commands: Full Forms & Usage
+
+| Command  | Full Form                       | Usage/Description                     |
+| -------- | ------------------------------- | ------------------------------------- |
+| `ls`     | list                            | List files and directories            |
+| `cd`     | change directory                | Change current directory              |
+| `pwd`    | print working directory         | Show current directory path           |
+| `cp`     | copy                            | Copy files/directories                |
+| `mv`     | move                            | Move or rename files/directories      |
+| `rm`     | remove                          | Delete files or directories           |
+| `chmod`  | change mode                     | Change file/directory permissions     |
+| `chown`  | change owner                    | Change ownership of files/directories |
+| `cat`    | concatenate                     | Display file contents                 |
+| `echo`   | —                               | Print text or variables to terminal   |
+| `touch`  | —                               | Create empty file or update timestamp |
+| `mkdir`  | make directory                  | Create a new directory                |
+| `rmdir`  | remove directory                | Delete an empty directory             |
+| `grep`   | global regular expression print | Search text inside files              |
+| `find`   | —                               | Search files/directories by criteria  |
+| `tar`    | —                               | Archive files (tarball)               |
+| `ps`     | process status                  | Show running processes                |
+| `kill`   | —                               | Terminate processes                   |
+| `man`    | manual                          | Show manual pages for commands        |
+| `whoami` | —                               | Show current user                     |
+| `sudo`   | superuser do                    | Run commands with elevated privileges |
+| `df`     | disk free                       | Show disk space usage                 |
+| `du`     | disk usage                      | Show size of files/directories        |
+| `head`   | —                               | Show first few lines of a file        |
+| `tail`   | —                               | Show last few lines of a file         |
+| `ssh`    | secure shell                    | Connect securely to remote system     |
+| `scp`    | secure copy                     | Copy files securely between hosts     |
+| `wget`   | —                               | Download files from the internet      |
+
+---
+
+## 7. File Permissions in Linux/Unix
+
+Every file and directory has **permissions** controlling who can **read**, **write**, or **execute** it.
+
+---
+
+### Permission Types:
+
+| Symbol | Meaning            |
+| ------ | ------------------ |
+| `r`    | Read permission    |
+| `w`    | Write permission   |
+| `x`    | Execute permission |
+
+---
+
+### Permission Categories:
+
+| Category | Who it applies to         |
+| -------- | ------------------------- |
+| Owner    | File’s owner (user)       |
+| Group    | Users in the file’s group |
+| Others   | All other users           |
+
+---
+
+### Permission Format:
+
+Example:
+
+```
+-rwxr-xr--
+```
+
+* `-` = file type (regular file here; `d` for directory)
+* `rwx` = owner permissions (read, write, execute)
+* `r-x` = group permissions (read, no write, execute)
+* `r--` = others permissions (read only)
+
+---
+
+### Numeric (Octal) Permissions:
+
+| Number | Permission Bits | Meaning              |
+| ------ | --------------- | -------------------- |
+| 0      | ---             | no permissions       |
+| 1      | --x             | execute only         |
+| 2      | -w-             | write only           |
+| 3      | -wx             | write & execute      |
+| 4      | r--             | read only            |
+| 5      | r-x             | read & execute       |
+| 6      | rw-             | read & write         |
+| 7      | rwx             | read, write, execute |
+
+---
+
+### Example:
+
+```bash
+chmod 754 filename
+```
+
+* Owner = 7 = `rwx`
+* Group = 5 = `r-x`
+* Others = 4 = `r--`
+
+---
+
+### Commands to Manage Permissions:
+
+* View permissions:
+
+  ```bash
+  ls -l filename
+  ```
+* Change permissions:
+
+  ```bash
+  chmod 755 filename
+  ```
+* Change ownership:
+
+  ```bash
+  chown user:group filename
+  ```
