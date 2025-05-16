@@ -1,14 +1,14 @@
 #!/bin/bash
 
-#!/bin/bash
 
-# Create .gitignore to ignore Vim swap files
-cat <<EOL > .gitignore
-*.swp
-*.swo
-*.swl
-*.swn
-EOL
+
+
+
+
+
+
+
+
 
 # Initialize Git repo if not already
 if [ ! -d ".git" ]; then
